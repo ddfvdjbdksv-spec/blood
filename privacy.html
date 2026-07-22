@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سياسة الخصوصية - بنك الدم</title>
+
+<style>
+.page-hero { background:var(--gradient-primary); padding:72px 0 52px; text-align:center; position:relative; overflow:hidden; }
+.page-hero::before { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='10'/%3E%3C/g%3E%3C/svg%3E"); }
+.privacy-card { background:white; border-radius:var(--radius-2xl); padding:48px; box-shadow:var(--shadow-lg); margin:-32px auto 60px; position:relative; z-index:2; }
+.privacy-card h2 { font-size:20px; font-weight:800; color:var(--text); margin:32px 0 14px; display:flex; align-items:center; gap:10px; }
+.privacy-card h2:first-child { margin-top:0; }
+.privacy-card p, .privacy-card li { color:var(--text-muted); line-height:2; font-size:15px; }
+.privacy-card ul { padding-right:20px; margin:10px 0; }
+.privacy-card ul li { margin-bottom:8px; list-style:disc; }
+.highlight-box { background:var(--primary-50); border-right:4px solid var(--primary); border-radius:0 var(--radius) var(--radius) 0; padding:16px 20px; margin:16px 0; }
+.toc { background:var(--bg-muted); border-radius:var(--radius-lg); padding:24px; margin-bottom:32px; border:1px solid var(--border-light); }
+.toc-item { display:flex; align-items:center; gap:8px; padding:8px 0; border-bottom:1px solid var(--border-light); font-size:14px; font-weight:600; color:var(--primary); cursor:pointer; text-decoration:none; transition:var(--transition); }
+.toc-item:last-child { border-bottom:none; }
+.toc-item:hover { color:var(--primary-dark); padding-right:6px; }
+</style>
+<style>
+/* ============================================
+   BLOOD BANK DESIGN SYSTEM
+   نظام التصميم - بنك الدم
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap');
+
+/* ============ CSS VARIABLES ============ */
+:root {
+  /* Colors */
+  --primary: #DC2626;
+  --primary-dark: #B91C1C;
+  --primary-light: #EF4444;
+  --primary-50: #FEF2F2;
+  --primary-100: #FEE2E2;
+  --primary-200: #FECACA;
+  --accent: #0EA5E9;
+  --accent-dark: #0284C7;
+  --accent-light: #38BDF8;
+  --success: #22C55E;
+  --success-dark: #16A34A;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --info: #3B82F6;
+
+  /* Neutrals */
+  --bg: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-muted: #F1F5F9;
+  --border: #E2E8F0;
+  --border-light: #F1F5F9;
+  --text: #0F172A;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+  --text-white: #FFFFFF;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #DC2626 0%, #B91C1C 50%, #991B1B 100%);
+  --gradient-hero: linear-gradient(135deg, #0F172A 0%, #1E293B 30%, #DC2626 100%);
+  --gradient-card: linear-gradient(145deg, #ffffff 0%, #fef2f2 100%);
+  --gradient-accent: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
+  --gradient-success: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+  --gradient-mesh: radial-gradient(ellipse at 20% 50%, rgba(220,38,38,0.15) 0%, transparent 50%),
+                   radial-gradient(ellipse at 80% 20%, rgba(14,165,233,0.1) 0%, transparent 50%),
+                   radial-gradient(ellipse at 50% 80%, rgba(220,38,38,0.08) 0%, transparent 50%);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
+  --shadow-md: 0 10px 25px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.04);
+  --shadow-lg: 0 20px 40px -5px rgba(0,0,0,0.1), 0 10px 15px -3px rgba(0,0,0,0.05);
+  --shadow-xl: 0 30px 60px -10px rgba(0,0,0,0.15);
+  --shadow-primary: 0 10px 30px rgba(220,38,38,0.25);
+  --shadow-accent: 0 10px 30px rgba(14,165,233,0.25);
+  --shadow-glow: 0 0 40px rgba(220,38,38,0.2);
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* Typography */
+  --font-primary: 'Cairo', 'Tajawal', sans-serif;
+  --font-display: 'Tajawal', 'Cairo', sans-serif;
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-md: 17px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+  --text-2xl: 30px;
+  --text-3xl: 36px;
+  --text-4xl: 48px;
+  --text-5xl: 60px;
+
+  /* Transitions */
+  --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Layout */
+  --sidebar-width: 280px;
+  --sidebar-collapsed: 72px;
+  --navbar-height: 72px;
+  --container-max: 1400px;
+}
+
+/* ============ RESET & BASE ============ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  direction: rtl;
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+input, select, textarea { font-family: inherit; }
+ul, ol { list-style: none; }
+
+/* ============ TYPOGRAPHY ============ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.display-1 { font-size: var(--text-5xl); }
+.display-2 { font-size: var(--text-4xl); }
+.heading-1 { font-size: var(--text-3xl); }
+.heading-2 { font-size: var(--text-2xl); }
+.heading-3 { font-size: var(--text-xl); }
+.heading-4 { font-size: var(--text-lg); }
+.text-sm { font-size: var(--text-sm); }
+.text-xs { font-size: var(--text-xs); }
+.text-muted { color: var(--text-muted); }
+.text-primary { color: var(--primary); }
+.text-accent { color: var(--accent); }
+.text-success { color: var(--success); }
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.font-medium { font-weight: 500; }
+
+/* ============ CONTAINER ============ */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+.container-sm { max-width: 800px; margin: 0 auto; padding: 0 var(--space-6); }
+.container-md { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-6); }
+
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 14px 28px;
+  border-radius: var(--radius-xl);
+  font-size: var(--text-base);
+  font-weight: 700;
+  font-family: var(--font-primary);
+  transition: var(--transition-spring);
+  cursor: pointer;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: var(--transition);
+}
+
+.btn:hover::before { background: rgba(255,255,255,0.12); }
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: var(--shadow-primary);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(220,38,38,0.35);
+}
+
+.btn-accent {
+  background: var(--gradient-accent);
+  color: white;
+  box-shadow: var(--shadow-accent);
+}
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(14,165,233,0.35);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.btn-outline:hover {
+  background: var(--primary-50);
+  transform: translateY(-2px);
+}
+
+.btn-outline-white {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.6);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+.btn-outline-white:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+.btn-success {
+  background: var(--gradient-success);
+  color: white;
+  box-shadow: 0 10px 25px rgba(34,197,94,0.25);
+}
+.btn-success:hover { transform: translateY(-2px); }
+
+.btn-ghost {
+  background: var(--bg-muted);
+  color: var(--text);
+}
+.btn-ghost:hover { background: var(--border); transform: translateY(-1px); }
+
+.btn-danger {
+  background: linear-gradient(135deg, #EF4444, #DC2626);
+  color: white;
+  box-shadow: 0 10px 25px rgba(239,68,68,0.3);
+}
+.btn-danger:hover { transform: translateY(-2px); }
+
+.btn-sm { padding: 9px 18px; font-size: var(--text-sm); }
+.btn-lg { padding: 18px 36px; font-size: var(--text-md); }
+.btn-xl { padding: 20px 44px; font-size: var(--text-lg); border-radius: var(--radius-2xl); }
+.btn-icon { padding: 12px; border-radius: var(--radius-full); width: 44px; height: 44px; }
+.btn-icon-sm { padding: 8px; border-radius: var(--radius-full); width: 36px; height: 36px; }
+.btn-full { width: 100%; }
+
+/* Ripple */
+.btn .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transform: scale(0);
+  animation: ripple-anim 0.6s linear;
+  pointer-events: none;
+}
+@keyframes ripple-anim {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ============ CARDS ============ */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-light);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+.card-glass {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.5);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-primary {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+}
+.card-primary * { color: white; }
+
+.card-gradient {
+  background: var(--gradient-card);
+  border: 1px solid var(--primary-100);
+}
+
+.card-stat {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  transition: var(--transition-spring);
+  position: relative;
+  overflow: hidden;
+}
+.card-stat::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 80px; height: 80px;
+  border-radius: 0 0 0 var(--radius-2xl);
+  opacity: 0.06;
+}
+.card-stat:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+/* ============ FORMS ============ */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.form-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.form-label .required { color: var(--primary); }
+
+.form-input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  font-size: var(--text-base);
+  font-family: var(--font-primary);
+  color: var(--text);
+  background: var(--bg-card);
+  transition: var(--transition);
+  outline: none;
+  direction: rtl;
+}
+.form-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(220,38,38,0.1);
+  background: var(--bg-card);
+}
+.form-input:hover:not(:focus) { border-color: var(--text-light); }
+.form-input::placeholder { color: var(--text-light); }
+.form-input.error { border-color: var(--danger); box-shadow: 0 0 0 4px rgba(239,68,68,0.1); }
+.form-input.success { border-color: var(--success); box-shadow: 0 0 0 4px rgba(34,197,94,0.1); }
+
+.form-select {
+  width: 100%;
+  padding: 13px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  font-size: var(--text-base);
+  font-family: var(--font-primary);
+  color: var(--text);
+  background: var(--bg-card);
+  transition: var(--transition);
+  outline: none;
+  direction: rtl;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 16px center;
+}
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(220,38,38,0.1);
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  font-size: var(--text-base);
+  font-family: var(--font-primary);
+  color: var(--text);
+  background: var(--bg-card);
+  transition: var(--transition);
+  outline: none;
+  direction: rtl;
+  resize: vertical;
+  min-height: 100px;
+}
+.form-textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(220,38,38,0.1);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-wrapper .input-icon {
+  position: absolute;
+  right: 14px;
+  color: var(--text-muted);
+  pointer-events: none;
+  display: flex;
+}
+.input-wrapper .form-input { padding-right: 44px; }
+.input-wrapper .input-icon-left { right: auto; left: 14px; }
+.input-wrapper .form-input.has-left-icon { padding-left: 44px; }
+
+.form-hint { font-size: var(--text-xs); color: var(--text-muted); }
+.form-error { font-size: var(--text-xs); color: var(--danger); display: flex; align-items: center; gap: 4px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); }
+.form-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+
+/* Radio & Checkbox */
+.radio-group, .checkbox-group {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+.radio-item, .checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+}
+.radio-item:hover, .checkbox-item:hover { border-color: var(--primary); background: var(--primary-50); }
+.radio-item.active, .checkbox-item.active {
+  border-color: var(--primary);
+  background: var(--primary-50);
+  color: var(--primary);
+}
+.radio-item input, .checkbox-item input { display: none; }
+
+/* Blood Type Selector */
+.blood-type-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+.blood-type-btn {
+  padding: 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  text-align: center;
+  font-weight: 800;
+  font-size: var(--text-lg);
+  cursor: pointer;
+  transition: var(--transition-spring);
+  background: var(--bg-card);
+  color: var(--text);
+  position: relative;
+  overflow: hidden;
+}
+.blood-type-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-primary);
+}
+.blood-type-btn.active {
+  background: var(--gradient-primary);
+  border-color: var(--primary-dark);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: var(--shadow-primary);
+}
+.blood-type-btn .type-label { font-size: var(--text-xs); font-weight: 500; margin-top: 2px; opacity: 0.7; }
+
+/* ============ TABLES ============ */
+.table-wrapper {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+}
+.table-header {
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  background: var(--bg-card);
+}
+.table-responsive { overflow-x: auto; }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+.table th {
+  background: var(--bg-muted);
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 12px 20px;
+  text-align: right;
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+.table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text);
+  vertical-align: middle;
+}
+.table tr:last-child td { border-bottom: none; }
+.table tr:hover td { background: var(--primary-50); transition: var(--transition-fast); }
+.table .actions { display: flex; gap: var(--space-2); align-items: center; }
+
+/* ============ BADGES ============ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.badge-primary { background: var(--primary-100); color: var(--primary-dark); }
+.badge-success { background: #DCFCE7; color: var(--success-dark); }
+.badge-warning { background: #FEF3C7; color: #92400E; }
+.badge-danger { background: #FEE2E2; color: var(--primary-dark); }
+.badge-info { background: #DBEAFE; color: #1D4ED8; }
+.badge-accent { background: #E0F2FE; color: var(--accent-dark); }
+.badge-neutral { background: var(--bg-muted); color: var(--text-muted); }
+
+/* Blood type badge */
+.blood-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  color: white;
+  font-weight: 800;
+  font-size: var(--text-sm);
+  box-shadow: var(--shadow-primary);
+  flex-shrink: 0;
+}
+.blood-badge-sm {
+  width: 32px;
+  height: 32px;
+  font-size: var(--text-xs);
+}
+.blood-badge-lg {
+  width: 60px;
+  height: 60px;
+  font-size: var(--text-xl);
+}
+
+/* Priority badges */
+.priority-normal { background: #DCFCE7; color: #166534; }
+.priority-urgent { background: #FEF3C7; color: #92400E; }
+.priority-emergency { background: #FEE2E2; color: #7F1D1D; }
+
+/* ============ PAGINATION ============ */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-5);
+}
+.page-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  border: 2px solid var(--border);
+  color: var(--text-muted);
+  transition: var(--transition);
+  cursor: pointer;
+  background: var(--bg-card);
+}
+.page-btn:hover { border-color: var(--primary); color: var(--primary); transform: scale(1.05); }
+.page-btn.active {
+  background: var(--gradient-primary);
+  border-color: transparent;
+  color: white;
+  box-shadow: var(--shadow-primary);
+}
+.page-btn:disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
+
+/* ============ ALERTS ============ */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius);
+  font-size: var(--text-sm);
+  border: 1px solid;
+}
+.alert-success { background: #F0FDF4; border-color: #86EFAC; color: #166534; }
+.alert-warning { background: #FFFBEB; border-color: #FCD34D; color: #92400E; }
+.alert-danger { background: #FEF2F2; border-color: #FCA5A5; color: #7F1D1D; }
+.alert-info { background: #EFF6FF; border-color: #93C5FD; color: #1D4ED8; }
+.alert-icon { flex-shrink: 0; margin-top: 1px; }
+
+/* ============ MODALS ============ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15,23,42,0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+}
+.modal-overlay.active { opacity: 1; pointer-events: all; }
+.modal {
+  background: var(--bg-card);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  max-width: 600px;
+  width: 100%;
+  box-shadow: var(--shadow-xl);
+  transform: translateY(20px) scale(0.97);
+  transition: var(--transition-spring);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal-overlay.active .modal { transform: translateY(0) scale(1); }
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--border);
+}
+.modal-close {
+  width: 36px; height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--bg-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--text-muted);
+}
+.modal-close:hover { background: var(--primary-100); color: var(--primary); transform: rotate(90deg); }
+
+/* ============ TOAST NOTIFICATIONS ============ */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  pointer-events: none;
+}
+.toast {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  min-width: 300px;
+  pointer-events: all;
+  animation: toastIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  backdrop-filter: blur(12px);
+  border: 1px solid;
+}
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(-20px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.toast-success { background: rgba(240,253,244,0.95); border-color: #86EFAC; color: #166534; }
+.toast-error { background: rgba(254,242,242,0.95); border-color: #FCA5A5; color: #7F1D1D; }
+.toast-info { background: rgba(239,246,255,0.95); border-color: #93C5FD; color: #1D4ED8; }
+.toast-warning { background: rgba(255,251,235,0.95); border-color: #FCD34D; color: #92400E; }
+
+/* ============ SKELETON LOADING ============ */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-wave 1.5s infinite;
+  border-radius: var(--radius);
+}
+@keyframes skeleton-wave {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.skeleton-text { height: 16px; border-radius: var(--radius-sm); }
+.skeleton-title { height: 28px; border-radius: var(--radius-sm); }
+.skeleton-card { height: 120px; border-radius: var(--radius-xl); }
+.skeleton-avatar { width: 48px; height: 48px; border-radius: var(--radius-full); }
+.skeleton-btn { height: 44px; width: 120px; border-radius: var(--radius-xl); }
+
+/* ============ SEARCH ============ */
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-box .search-icon {
+  position: absolute;
+  right: 14px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+.search-box .form-input { padding-right: 44px; padding-left: 14px; }
+.search-box .clear-btn {
+  position: absolute;
+  left: 10px;
+  width: 24px; height: 24px;
+  border-radius: var(--radius-full);
+  background: var(--text-light);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  transition: var(--transition);
+  opacity: 0;
+}
+.search-box:focus-within .clear-btn { opacity: 1; }
+
+/* ============ FILTER CHIPS ============ */
+.filter-chips {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  align-items: center;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  border: 2px solid var(--border);
+  color: var(--text-muted);
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.chip:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-50); }
+.chip.active { background: var(--primary); border-color: var(--primary); color: white; }
+.chip .chip-close { margin-right: -4px; opacity: 0.7; }
+
+/* ============ SIDEBAR ============ */
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background: var(--bg-card);
+  border-left: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-slow);
+  overflow: hidden;
+}
+.sidebar-logo {
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  border-bottom: 1px solid var(--border);
+  min-height: var(--navbar-height);
+}
+.sidebar-nav { flex: 1; overflow-y: auto; padding: var(--space-4) 0; }
+.sidebar-nav::-webkit-scrollbar { width: 4px; }
+.sidebar-nav::-webkit-scrollbar-track { background: transparent; }
+.sidebar-nav::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.nav-section-title {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: var(--space-4) var(--space-6) var(--space-2);
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 11px var(--space-5);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  transition: var(--transition);
+  cursor: pointer;
+  margin: 2px var(--space-3);
+  border-radius: var(--radius);
+  position: relative;
+}
+.nav-item:hover { background: var(--bg-muted); color: var(--text); }
+.nav-item.active {
+  background: var(--primary-50);
+  color: var(--primary);
+}
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background: var(--primary);
+  border-radius: 0 4px 4px 0;
+}
+.nav-item .nav-icon { width: 20px; height: 20px; flex-shrink: 0; }
+.nav-badge {
+  margin-right: auto;
+  background: var(--primary);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  line-height: 1.5;
+}
+.sidebar-footer {
+  border-top: 1px solid var(--border);
+  padding: var(--space-4) var(--space-5);
+}
+
+/* ============ MAIN CONTENT LAYOUT ============ */
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+.admin-content {
+  flex: 1;
+  margin-right: var(--sidebar-width);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.admin-topbar {
+  height: var(--navbar-height);
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-8);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  gap: var(--space-4);
+}
+.admin-main {
+  flex: 1;
+  padding: var(--space-8);
+  max-width: 100%;
+}
+
+/* ============ NAVBAR (PUBLIC) ============ */
+.navbar {
+  height: var(--navbar-height);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(226,232,240,0.8);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.navbar-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-primary);
+}
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+.navbar-link {
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+.navbar-link:hover { background: var(--bg-muted); color: var(--text); }
+.navbar-link.active { background: var(--primary-50); color: var(--primary); }
+.navbar-cta { display: flex; align-items: center; gap: var(--space-3); }
+
+/* ============ FOOTER ============ */
+.footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.8);
+  padding: var(--space-16) 0 var(--space-8);
+  margin-top: auto;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: var(--space-10);
+  padding-bottom: var(--space-10);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: var(--space-8);
+}
+.footer-title { color: white; font-size: var(--text-md); margin-bottom: var(--space-5); font-weight: 700; }
+.footer-link {
+  display: block;
+  font-size: var(--text-sm);
+  padding: 5px 0;
+  color: rgba(255,255,255,0.6);
+  transition: var(--transition);
+}
+.footer-link:hover { color: white; padding-right: 4px; }
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,0.4);
+}
+
+/* ============ ANIMATIONS ============ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes dropFall {
+  0% { transform: translateY(-20px); opacity: 0; }
+  70% { transform: translateY(4px); }
+  100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes wave {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+@keyframes countUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fadeIn { animation: fadeIn 0.5s ease forwards; }
+.animate-fadeInUp { animation: fadeInUp 0.5s ease forwards; }
+.animate-fadeInRight { animation: fadeInRight 0.5s ease forwards; }
+.animate-fadeInLeft { animation: fadeInLeft 0.5s ease forwards; }
+.animate-scaleIn { animation: scaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-heartbeat { animation: heartbeat 2s ease-in-out infinite; }
+.animate-spin { animation: spin 1s linear infinite; }
+.animate-pulse { animation: pulse 2s ease-in-out infinite; }
+
+/* Delays */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+.delay-7 { animation-delay: 0.7s; }
+.delay-8 { animation-delay: 0.8s; }
+
+/* Initially hidden for animation */
+.fade-hidden { opacity: 0; }
+
+/* Intersection Observer animations */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(-30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* ============ UTILITY ============ */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-end { justify-content: flex-end; }
+.gap-1 { gap: var(--space-1); }
+.gap-2 { gap: var(--space-2); }
+.gap-3 { gap: var(--space-3); }
+.gap-4 { gap: var(--space-4); }
+.gap-5 { gap: var(--space-5); }
+.gap-6 { gap: var(--space-6); }
+.gap-8 { gap: var(--space-8); }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1 { flex: 1; }
+.flex-shrink-0 { flex-shrink: 0; }
+
+.grid { display: grid; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.min-h-screen { min-height: 100vh; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.overflow-hidden { overflow: hidden; }
+
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-3 { margin-bottom: var(--space-3); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-5 { margin-bottom: var(--space-5); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+.mb-10 { margin-bottom: var(--space-10); }
+.mb-12 { margin-bottom: var(--space-12); }
+.mb-16 { margin-bottom: var(--space-16); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+.mt-auto { margin-top: auto; }
+.mr-auto { margin-right: auto; }
+.ml-auto { margin-left: auto; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+.p-4 { padding: var(--space-4); }
+.p-5 { padding: var(--space-5); }
+.p-6 { padding: var(--space-6); }
+.p-8 { padding: var(--space-8); }
+.py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+.py-6 { padding-top: var(--space-6); padding-bottom: var(--space-6); }
+.py-8 { padding-top: var(--space-8); padding-bottom: var(--space-8); }
+.py-12 { padding-top: var(--space-12); padding-bottom: var(--space-12); }
+.py-16 { padding-top: var(--space-16); padding-bottom: var(--space-16); }
+.py-20 { padding-top: var(--space-20); padding-bottom: var(--space-20); }
+.px-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
+.px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
+.px-8 { padding-left: var(--space-8); padding-right: var(--space-8); }
+
+.section { padding: var(--space-20) 0; }
+.section-sm { padding: var(--space-12) 0; }
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+
+.rounded { border-radius: var(--radius); }
+.rounded-full { border-radius: var(--radius-full); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-2xl { border-radius: var(--radius-2xl); }
+
+.border { border: 1px solid var(--border); }
+.border-primary { border-color: var(--primary); }
+
+.shadow { box-shadow: var(--shadow); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-primary { box-shadow: var(--shadow-primary); }
+
+.bg-primary { background: var(--gradient-primary); }
+.bg-card { background: var(--bg-card); }
+.bg-muted { background: var(--bg-muted); }
+.bg-white { background: white; }
+
+.text-white { color: white; }
+.text-dark { color: var(--text); }
+
+.hidden { display: none; }
+.visible { visibility: visible; }
+.invisible { visibility: hidden; }
+
+.truncate { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: var(--space-6) 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+.section-title h2 {
+  font-size: var(--text-3xl);
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: var(--space-4);
+}
+.section-title p {
+  font-size: var(--text-md);
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 16px;
+  background: var(--primary-100);
+  color: var(--primary);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+}
+
+/* Icon wrapper */
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+.icon-wrapper-sm { width: 36px; height: 36px; }
+.icon-wrapper-md { width: 48px; height: 48px; }
+.icon-wrapper-lg { width: 60px; height: 60px; }
+.icon-wrapper-xl { width: 72px; height: 72px; border-radius: var(--radius-lg); }
+.icon-wrapper-primary { background: var(--primary-100); color: var(--primary); }
+.icon-wrapper-accent { background: #E0F2FE; color: var(--accent); }
+.icon-wrapper-success { background: #DCFCE7; color: var(--success); }
+.icon-wrapper-warning { background: #FEF3C7; color: var(--warning); }
+
+/* Avatar */
+.avatar {
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.avatar-sm { width: 32px; height: 32px; font-size: var(--text-xs); }
+.avatar-md { width: 44px; height: 44px; font-size: var(--text-sm); }
+.avatar-lg { width: 60px; height: 60px; font-size: var(--text-xl); }
+
+/* Stats counter */
+.stat-number {
+  font-size: var(--text-3xl);
+  font-weight: 900;
+  font-family: var(--font-display);
+  line-height: 1;
+}
+
+/* Progress */
+.progress {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-muted);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  transition: width 1s ease;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-2);
+  min-width: 200px;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: var(--transition);
+}
+.dropdown.open .dropdown-menu { opacity: 1; pointer-events: all; transform: translateY(0); }
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 9px 14px;
+  border-radius: var(--radius);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+.dropdown-item:hover { background: var(--bg-muted); }
+.dropdown-item.danger:hover { background: var(--primary-50); color: var(--primary); }
+
+/* Loading spinner */
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+.spinner-sm { width: 16px; height: 16px; border-width: 2px; }
+.spinner-lg { width: 40px; height: 40px; border-width: 4px; }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border);
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab-btn {
+  padding: 12px 20px;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: var(--transition);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+/* Mobile Menu */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15,23,42,0.7);
+  z-index: 200;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.mobile-menu-overlay.active { opacity: 1; }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1280px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 1024px) {
+  .admin-content { margin-right: 0; }
+  .sidebar { transform: translateX(100%); }
+  .sidebar.open { transform: translateX(0); }
+  .form-grid-3 { grid-template-columns: 1fr 1fr; }
+  :root { --space-20: 64px; }
+}
+
+@media (max-width: 768px) {
+  .navbar-links, .navbar-cta .btn:not(:last-child) { display: none; }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-grid-3 { grid-template-columns: 1fr; }
+  .blood-type-grid { grid-template-columns: repeat(4, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+  .section { padding: var(--space-12) 0; }
+  :root { --space-20: 48px; --text-5xl: 40px; --text-4xl: 32px; --text-3xl: 28px; }
+  .admin-main { padding: var(--space-5); }
+  .admin-topbar { padding: 0 var(--space-5); }
+  .display-1 { font-size: 36px; }
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 var(--space-4); }
+  .blood-type-grid { grid-template-columns: repeat(4, 1fr); }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .table th, .table td { padding: 10px 12px; }
+  :root { --text-5xl: 32px; --text-4xl: 28px; --text-3xl: 24px; }
+}
+
+</style>
+</head>
+<body style="background:var(--bg-muted)">
+
+<nav class="navbar">
+  <div class="container navbar-inner">
+    <a href="../index.html" class="navbar-brand">
+      <div class="navbar-logo"><svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div>
+      <div style="font-weight:900;font-size:17px;color:var(--text)">بنك الدم</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../index.html" class="navbar-link">الرئيسية</a>
+      <a href="about.html" class="navbar-link">من نحن</a>
+      <a href="faq.html" class="navbar-link">الأسئلة الشائعة</a>
+      <a href="contact.html" class="navbar-link">تواصل معنا</a>
+    </div>
+    <div class="navbar-cta">
+      <a href="register.html" class="btn btn-primary btn-sm">سجل كمتبرع</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container" style="position:relative;z-index:2">
+    <div style="display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;background:rgba(255,255,255,0.15);border-radius:50%;border:2px solid rgba(255,255,255,0.3);margin-bottom:20px">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <h1 style="font-size:36px;font-weight:900;color:white;margin-bottom:12px">سياسة الخصوصية</h1>
+    <p style="font-size:15px;color:rgba(255,255,255,0.8)">آخر تحديث: يناير 2025</p>
+  </div>
+</div>
+
+<div class="container container-md">
+  <div class="privacy-card animate-fadeInUp">
+
+    <div class="highlight-box">
+      <p style="color:var(--primary-dark);font-weight:600;margin:0">
+        نحن في بنك الدم نلتزم بحماية خصوصية بياناتك الشخصية. تُوضح هذه السياسة كيفية جمع بياناتك واستخدامها وحمايتها.
+      </p>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+      <div style="font-weight:800;font-size:14px;margin-bottom:14px;color:var(--text)">📋 محتويات السياسة</div>
+      <a href="#section1" class="toc-item">١. المعلومات التي نجمعها</a>
+      <a href="#section2" class="toc-item">٢. كيفية استخدام البيانات</a>
+      <a href="#section3" class="toc-item">٣. حماية البيانات</a>
+      <a href="#section4" class="toc-item">٤. مشاركة البيانات</a>
+      <a href="#section5" class="toc-item">٥. حقوقك</a>
+      <a href="#section6" class="toc-item">٦. ملفات تعريف الارتباط</a>
+      <a href="#section7" class="toc-item">٧. التواصل معنا</a>
+    </div>
+
+    <h2 id="section1">
+      <div class="icon-wrapper icon-wrapper-sm icon-wrapper-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      ١. المعلومات التي نجمعها
+    </h2>
+    <p>نجمع المعلومات التالية عند تسجيلك كمتبرع أو استخدامك للمنصة:</p>
+    <ul>
+      <li><strong>البيانات الشخصية:</strong> الاسم الكامل، الرقم القومي، رقم الهاتف، العنوان.</li>
+      <li><strong>البيانات الجغرافية:</strong> المحافظة، المدينة، الحي.</li>
+      <li><strong>البيانات الطبية:</strong> فصيلة الدم، العمر، الجنس، تاريخ آخر تبرع، الأمراض المزمنة.</li>
+      <li><strong>بيانات الاستخدام:</strong> معلومات الجلسة وأنماط الاستخدام للتحسين المستمر.</li>
+    </ul>
+
+    <h2 id="section2">
+      <div class="icon-wrapper icon-wrapper-sm icon-wrapper-accent">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      ٢. كيفية استخدام البيانات
+    </h2>
+    <p>نستخدم بياناتك للأغراض التالية حصراً:</p>
+    <ul>
+      <li>ربطك بالمستشفيات والمرضى المحتاجين لفصيلة دمك.</li>
+      <li>إخطارك عند وجود حاجة عاجلة لتبرعك.</li>
+      <li>تحسين خدماتنا وتجربة المستخدم.</li>
+      <li>إعداد إحصائيات مجهولة الهوية لتحسين توزيع الدم.</li>
+      <li>الامتثال للمتطلبات القانونية والصحية.</li>
+    </ul>
+
+    <div class="highlight-box">
+      <p style="margin:0;color:var(--primary-dark);font-weight:600">
+        🔒 نؤكد أننا لا نبيع بياناتك لأي طرف ثالث تجاري، ولا نستخدمها لأغراض تسويقية دون موافقتك الصريحة.
+      </p>
+    </div>
+
+    <h2 id="section3">
+      <div class="icon-wrapper icon-wrapper-sm icon-wrapper-success">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      ٣. حماية البيانات
+    </h2>
+    <p>نطبق أعلى معايير الأمان لحماية بياناتك:</p>
+    <ul>
+      <li>تشفير البيانات الحساسة باستخدام تقنيات التشفير الحديثة.</li>
+      <li>تقييد الوصول للبيانات على الموظفين المخولين فقط.</li>
+      <li>مراجعة دورية لسياسات الأمان والتحديث المستمر.</li>
+      <li>النسخ الاحتياطي المنتظم لضمان سلامة البيانات.</li>
+      <li>الامتثال لمعايير حماية البيانات الطبية الدولية.</li>
+    </ul>
+
+    <h2 id="section4">
+      <div class="icon-wrapper icon-wrapper-sm" style="background:#EDE9FE;color:#7C3AED">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      ٤. مشاركة البيانات
+    </h2>
+    <p>قد نشارك بياناتك في الحالات التالية فقط:</p>
+    <ul>
+      <li><strong>المستشفيات والمراكز الطبية:</strong> لإيجاد متبرع مناسب في حالات الطوارئ.</li>
+      <li><strong>الجهات الحكومية الصحية:</strong> عند الطلب الرسمي وفق القانون.</li>
+      <li><strong>موافقتك الصريحة:</strong> في أي حالة أخرى تتطلب مشاركة بياناتك.</li>
+    </ul>
+    <p><strong>لا نشارك بياناتك أبداً</strong> مع شركات التأمين أو جهات التسويق أو أي طرف تجاري.</p>
+
+    <h2 id="section5">
+      <div class="icon-wrapper icon-wrapper-sm icon-wrapper-warning">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      </div>
+      ٥. حقوقك
+    </h2>
+    <p>لديك الحق الكامل في:</p>
+    <ul>
+      <li><strong>الوصول:</strong> طلب نسخة من جميع بياناتك المحفوظة لدينا.</li>
+      <li><strong>التصحيح:</strong> تعديل أي بيانات خاطئة أو غير محدثة.</li>
+      <li><strong>الحذف:</strong> طلب حذف بياناتك نهائياً من قاعدة بياناتنا.</li>
+      <li><strong>الاعتراض:</strong> الاعتراض على أي استخدام معين لبياناتك.</li>
+      <li><strong>النقل:</strong> طلب نقل بياناتك إلى منصة أخرى بصيغة قابلة للقراءة.</li>
+    </ul>
+    <p>لممارسة أي من هذه الحقوق، تواصل معنا على: <a href="mailto:privacy@nationalbloodbank.gov.eg" style="color:var(--primary);font-weight:700">privacy@nationalbloodbank.gov.eg</a></p>
+
+    <h2 id="section6">
+      <div class="icon-wrapper icon-wrapper-sm" style="background:#FEF3C7;color:var(--warning)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+      </div>
+      ٦. ملفات تعريف الارتباط (Cookies)
+    </h2>
+    <p>نستخدم ملفات تعريف الارتباط الضرورية لتشغيل المنصة بشكل سليم وحفظ تفضيلاتك. يمكنك التحكم فيها من إعدادات متصفحك، مع العلم أن تعطيلها قد يؤثر على بعض وظائف المنصة.</p>
+
+    <h2 id="section7">
+      <div class="icon-wrapper icon-wrapper-sm icon-wrapper-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      ٧. التواصل معنا
+    </h2>
+    <p>لأي استفسار عن سياسة الخصوصية أو للإبلاغ عن أي مخاوف تتعلق ببياناتك:</p>
+    <div style="background:var(--bg-muted);border-radius:var(--radius-lg);padding:20px;margin-top:12px">
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+        <div style="display:flex;gap:10px"><strong style="min-width:140px">البريد الإلكتروني:</strong> <a href="mailto:privacy@nationalbloodbank.gov.eg" style="color:var(--primary)">privacy@nationalbloodbank.gov.eg</a></div>
+        <div style="display:flex;gap:10px"><strong style="min-width:140px">الهاتف:</strong> <span>19199</span></div>
+        <div style="display:flex;gap:10px"><strong style="min-width:140px">العنوان:</strong> <span>شارع قصر العيني، القاهرة، جمهورية مصر العربية</span></div>
+        <div style="display:flex;gap:10px"><strong style="min-width:140px">ساعات العمل:</strong> <span>الأحد - الخميس، 8 صباحاً - 4 مساءً</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border);text-align:center;color:var(--text-muted);font-size:13px">
+      <p>آخر تحديث لهذه السياسة: يناير 2025</p>
+      <p>نحتفظ بحق تعديل هذه السياسة في أي وقت مع إشعار المستخدمين.</p>
+      <div style="display:flex;gap:16px;justify-content:center;margin-top:16px;flex-wrap:wrap">
+        <a href="../index.html" class="btn btn-primary btn-sm">العودة للرئيسية</a>
+        <a href="contact.html" class="btn btn-outline btn-sm">تواصل معنا</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2025 بنك الدم. جميع الحقوق محفوظة.</span>
+      <div style="display:flex;gap:20px">
+        <a href="../index.html" class="footer-link">الرئيسية</a>
+        <a href="about.html" class="footer-link">من نحن</a>
+        <a href="contact.html" class="footer-link">تواصل معنا</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<script>
+/* Blood Bank Icons - SVG Sprite */
+const ICONS = {
+  drop: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>`,
+  heart: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
+  user: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+  users: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  phone: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 13 19.79 19.79 0 0 1 1.22 4.34 2 2 0 0 1 3.22 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,
+  hospital: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="2" width="18" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg>`,
+  mapPin: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
+  search: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+  chart: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
+  bell: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>`,
+  check: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
+  checkCircle: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+  alertCircle: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
+  alertTriangle: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>`,
+  info: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>`,
+  x: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
+  menu: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>`,
+  chevronLeft: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>`,
+  chevronRight: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>`,
+  chevronDown: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>`,
+  edit: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`,
+  trash: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>`,
+  eye: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`,
+  plus: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>`,
+  filter: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>`,
+  download: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`,
+  upload: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>`,
+  calendar: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
+  clock: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+  settings: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>`,
+  logout: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>`,
+  home: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  shield: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  activity: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+  award: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>`,
+  star: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+  trendingUp: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>`,
+  mail: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`,
+  facebook: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>`,
+  twitter: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>`,
+  instagram: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>`,
+  whatsapp: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>`,
+  arrowLeft: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>`,
+  arrowRight: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`,
+  briefcase: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
+  helpCircle: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
+  list: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>`,
+  lock: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
+  unlock: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>`,
+};
+
+function icon(name, size = 20, className = '') {
+  const svg = ICONS[name] || ICONS.helpCircle;
+  return svg.replace('<svg', `<svg width="${size}" height="${size}" class="${className}"`);
+}
+
+/* ============================================
+   BLOOD BANK - MAIN UTILITIES & DATA STORE
+   ============================================ */
+
+// ============ DATA STORE ============
+const DB = {
+  donors: JSON.parse(localStorage.getItem('bb_donors') || '[]'),
+  requests: JSON.parse(localStorage.getItem('bb_requests') || '[]'),
+  
+  save() {
+    localStorage.setItem('bb_donors', JSON.stringify(this.donors));
+    localStorage.setItem('bb_requests', JSON.stringify(this.requests));
+  },
+  
+  addDonor(donor) {
+    donor.id = 'D' + Date.now();
+    donor.createdAt = new Date().toISOString();
+    donor.status = 'active';
+    donor.donationHistory = [];
+    this.donors.unshift(donor);
+    this.save();
+    return donor;
+  },
+  
+  getDonors(filters = {}) {
+    let list = [...this.donors];
+    if (filters.bloodType) list = list.filter(d => d.bloodType === filters.bloodType);
+    if (filters.governorate) list = list.filter(d => d.governorate === filters.governorate);
+    if (filters.city) list = list.filter(d => d.city?.toLowerCase().includes(filters.city.toLowerCase()));
+    if (filters.gender) list = list.filter(d => d.gender === filters.gender);
+    if (filters.ageMin) list = list.filter(d => d.age >= +filters.ageMin);
+    if (filters.ageMax) list = list.filter(d => d.age <= +filters.ageMax);
+    if (filters.q) {
+      const q = filters.q.toLowerCase();
+      list = list.filter(d => d.name?.toLowerCase().includes(q) || d.phone?.includes(q) || d.nationalId?.includes(q));
+    }
+    return list;
+  },
+
+  getDonorById(id) { return this.donors.find(d => d.id === id); },
+
+  updateDonor(id, data) {
+    const idx = this.donors.findIndex(d => d.id === id);
+    if (idx > -1) { this.donors[idx] = { ...this.donors[idx], ...data }; this.save(); }
+  },
+
+  deleteDonor(id) {
+    this.donors = this.donors.filter(d => d.id !== id);
+    this.save();
+  },
+
+  addRequest(req) {
+    req.id = 'R' + Date.now();
+    req.createdAt = new Date().toISOString();
+    req.status = 'open';
+    this.requests.unshift(req);
+    this.save();
+    return req;
+  },
+
+  getStats() {
+    const byBlood = {};
+    BLOOD_TYPES.forEach(t => byBlood[t] = 0);
+    this.donors.forEach(d => { if (byBlood[d.bloodType] !== undefined) byBlood[d.bloodType]++; });
+    return {
+      total: this.donors.length,
+      active: this.donors.filter(d => d.status === 'active').length,
+      requests: this.requests.length,
+      openRequests: this.requests.filter(r => r.status === 'open').length,
+      byBlood,
+      recent: this.donors.slice(0, 5),
+      recentRequests: this.requests.slice(0, 5),
+    };
+  }
+};
+
+// ============ CONSTANTS ============
+const BLOOD_TYPES = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
+
+const GOVERNORATES = [
+  'القاهرة', 'الجيزة', 'الإسكندرية', 'الدقهلية', 'البحر الأحمر', 'البحيرة',
+  'الفيوم', 'الغربية', 'الإسماعيلية', 'المنوفية', 'المنيا', 'القليوبية',
+  'الوادي الجديد', 'السويس', 'أسوان', 'أسيوط', 'بني سويف', 'بورسعيد',
+  'دمياط', 'جنوب سيناء', 'شمال سيناء', 'سوهاج', 'قنا', 'كفر الشيخ',
+  'مطروح', 'الأقصر', 'الشرقية', 'الأغا'
+];
+
+const BLOOD_COMPATIBILITY = {
+  'O-':  { canDonateTo: ['A+','A-','B+','B-','AB+','AB-','O+','O-'], canReceiveFrom: ['O-'] },
+  'O+':  { canDonateTo: ['A+','B+','AB+','O+'], canReceiveFrom: ['O+','O-'] },
+  'A-':  { canDonateTo: ['A+','A-','AB+','AB-'], canReceiveFrom: ['A-','O-'] },
+  'A+':  { canDonateTo: ['A+','AB+'], canReceiveFrom: ['A+','A-','O+','O-'] },
+  'B-':  { canDonateTo: ['B+','B-','AB+','AB-'], canReceiveFrom: ['B-','O-'] },
+  'B+':  { canDonateTo: ['B+','AB+'], canReceiveFrom: ['B+','B-','O+','O-'] },
+  'AB-': { canDonateTo: ['AB+','AB-'], canReceiveFrom: ['A-','B-','AB-','O-'] },
+  'AB+': { canDonateTo: ['AB+'], canReceiveFrom: ['A+','A-','B+','B-','AB+','AB-','O+','O-'] },
+};
+
+// ============ SEED DEMO DATA ============
+function seedData() {
+  if (DB.donors.length > 0) return;
+  const names = ['أحمد محمد علي','فاطمة حسن','محمد عبدالله','نور الهدى','عمر خالد','سارة أحمد','كريم مصطفى','ريم علي','ياسر عبدالرحمن','منى سعيد','طارق حسين','هند محمود','علاء الدين','إيمان فاروق','مصطفى كمال'];
+  const cities = ['مدينة نصر','الدقي','المعادي','شبرا','حدائق القبة','الزيتون','المنيل','بولاق','عين شمس','المطرية'];
+  names.forEach((name, i) => {
+    DB.addDonor({
+      name,
+      nationalId: '2' + String(Math.floor(Math.random()*900000000 + 100000000)),
+      phone: '010' + String(Math.floor(Math.random()*90000000 + 10000000)),
+      governorate: GOVERNORATES[i % GOVERNORATES.length],
+      city: cities[i % cities.length],
+      address: `شارع ${i+1}، عمارة ${i*3+1}`,
+      age: Math.floor(Math.random()*30 + 18),
+      gender: i % 3 === 0 ? 'female' : 'male',
+      bloodType: BLOOD_TYPES[i % BLOOD_TYPES.length],
+      hasDonatedBefore: i % 2 === 0 ? 'yes' : 'no',
+      lastDonationDate: i % 2 === 0 ? `2024-0${(i%9)+1}-15` : '',
+      chronicDiseases: i % 5 === 0 ? 'لا يوجد' : 'لا يوجد',
+    });
+  });
+  
+  // Seed requests
+  ['مستشفى القصر العيني','مستشفى المنيرة','مستشفى أبو الريش','مستشفى 57357'].forEach((h, i) => {
+    DB.addRequest({
+      hospitalName: h,
+      governorate: GOVERNORATES[i],
+      city: cities[i],
+      patientName: i % 2 === 0 ? 'مجهول' : `مريض ${i}`,
+      bloodType: BLOOD_TYPES[i % BLOOD_TYPES.length],
+      bagsNeeded: Math.floor(Math.random()*4) + 1,
+      priority: ['normal','urgent','emergency'][i % 3],
+      notes: 'يرجى التواصل العاجل',
+      contactName: `د. محمد ${i+1}`,
+      contactPhone: '011' + String(Math.floor(Math.random()*90000000 + 10000000)),
+    });
+  });
+}
+seedData();
+
+// ============ TOAST SYSTEM ============
+function showToast(msg, type = 'success', duration = 4000) {
+  let container = document.querySelector('.toast-container');
+  if (!container) {
+    container = document.createElement('div');
+    container.className = 'toast-container';
+    document.body.appendChild(container);
+  }
+  const icons = { success: '✓', error: '✕', warning: '⚠', info: 'ℹ' };
+  const toast = document.createElement('div');
+  toast.className = `toast toast-${type}`;
+  toast.innerHTML = `
+    <span style="font-size:18px;flex-shrink:0">${icons[type]}</span>
+    <span>${msg}</span>
+    <button onclick="this.closest('.toast').remove()" style="margin-right:auto;margin-left:-4px;background:none;border:none;cursor:pointer;font-size:16px;color:inherit;opacity:0.6;padding:2px 6px;border-radius:4px">×</button>
+  `;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.animation = 'toastIn 0.3s ease reverse';
+    setTimeout(() => toast.remove(), 300);
+  }, duration);
+}
+
+// ============ RIPPLE EFFECT ============
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('.btn');
+  if (!btn) return;
+  const ripple = document.createElement('span');
+  ripple.className = 'ripple';
+  const rect = btn.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height);
+  ripple.style.width = ripple.style.height = size + 'px';
+  ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
+  ripple.style.top = (e.clientY - rect.top - size/2) + 'px';
+  btn.appendChild(ripple);
+  ripple.addEventListener('animationend', () => ripple.remove());
+});
+
+// ============ SCROLL REVEAL ============
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
+});
+
+// ============ COUNTER ANIMATION ============
+function animateCounter(el, target, duration = 1800) {
+  let start = 0;
+  const increment = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += increment;
+    if (start >= target) { el.textContent = target.toLocaleString('ar-EG'); clearInterval(timer); }
+    else el.textContent = Math.floor(start).toLocaleString('ar-EG');
+  }, 16);
+}
+
+function initCounters() {
+  document.querySelectorAll('[data-counter]').forEach(el => {
+    const target = +el.dataset.counter;
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) { animateCounter(el, target); obs.disconnect(); }
+    });
+    obs.observe(el);
+  });
+}
+
+// ============ MINI CHART (canvas-free SVG bars) ============
+function renderMiniChart(containerId, data, colors) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const max = Math.max(...data.map(d => d.value), 1);
+  const w = 32, gap = 8, h = 60;
+  const bars = data.map((d, i) => {
+    const barH = Math.round((d.value / max) * h);
+    const x = i * (w + gap);
+    const y = h - barH;
+    return `<rect x="${x}" y="${y}" width="${w}" height="${barH}" rx="6" fill="${colors[i % colors.length]}" opacity="0.9"/>
+            <text x="${x + w/2}" y="${h + 16}" text-anchor="middle" font-size="10" fill="#64748B" font-family="Cairo">${d.label}</text>`;
+  }).join('');
+  const totalW = data.length * (w + gap) - gap;
+  el.innerHTML = `<svg viewBox="0 0 ${totalW} ${h+20}" xmlns="http://www.w3.org/2000/svg">${bars}</svg>`;
+}
+
+// ============ BLOOD TYPE PIE (SVG) ============
+function renderBloodPie(containerId, stats) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const types = Object.entries(stats);
+  const total = types.reduce((s, [,v]) => s + v, 0) || 1;
+  const colors = ['#DC2626','#B91C1C','#EF4444','#FCA5A5','#0EA5E9','#0284C7','#22C55E','#16A34A'];
+  const cx = 80, cy = 80, r = 65;
+  let startAngle = -Math.PI / 2;
+  let paths = '';
+  types.forEach(([type, val], i) => {
+    const frac = val / total;
+    const angle = frac * 2 * Math.PI;
+    const endAngle = startAngle + angle;
+    const x1 = cx + r * Math.cos(startAngle), y1 = cy + r * Math.sin(startAngle);
+    const x2 = cx + r * Math.cos(endAngle), y2 = cy + r * Math.sin(endAngle);
+    const large = angle > Math.PI ? 1 : 0;
+    if (frac > 0.005) {
+      const midAngle = startAngle + angle / 2;
+      const lx = cx + (r * 0.65) * Math.cos(midAngle);
+      const ly = cy + (r * 0.65) * Math.sin(midAngle);
+      paths += `<path d="M${cx},${cy} L${x1},${y1} A${r},${r} 0 ${large},1 ${x2},${y2} Z" fill="${colors[i]}" stroke="white" stroke-width="2">
+        <title>${type}: ${val}</title></path>`;
+      if (frac > 0.07) paths += `<text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" font-size="11" font-weight="bold" fill="white" font-family="Cairo">${type}</text>`;
+    }
+    startAngle = endAngle;
+  });
+  // center circle
+  paths += `<circle cx="${cx}" cy="${cy}" r="35" fill="white"/><text x="${cx}" y="${cy}" text-anchor="middle" dominant-baseline="middle" font-size="22" font-weight="900" fill="#DC2626" font-family="Tajawal">${total}</text><text x="${cx}" y="${cy+18}" text-anchor="middle" font-size="9" fill="#64748B" font-family="Cairo">متبرع</text>`;
+  el.innerHTML = `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">${paths}</svg>`;
+}
+
+// ============ BLOOD TYPE SELECTOR ============
+function initBloodTypeSelector(inputId) {
+  const hidden = document.getElementById(inputId);
+  document.querySelectorAll('.blood-type-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.blood-type-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (hidden) hidden.value = btn.dataset.type;
+    });
+  });
+}
+
+// ============ ACTIVE NAV ============
+function setActiveNav() {
+  const current = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-item[href], .navbar-link[href]').forEach(el => {
+    const href = el.getAttribute('href')?.split('/').pop() || '';
+    if (href === current || (current === '' && href === 'index.html')) {
+      el.classList.add('active');
+    }
+  });
+}
+
+// ============ MOBILE SIDEBAR ============
+function initMobileSidebar() {
+  const toggleBtn = document.getElementById('sidebarToggle');
+  const sidebar = document.querySelector('.sidebar');
+  const overlay = document.querySelector('.mobile-menu-overlay');
+  if (!toggleBtn || !sidebar) return;
+  
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+    if (overlay) { overlay.style.display = 'block'; setTimeout(() => overlay.classList.add('active'), 10); }
+  });
+  
+  if (overlay) {
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.style.display = 'none', 300);
+    });
+  }
+}
+
+// ============ FORM VALIDATION ============
+function validateForm(formEl) {
+  let valid = true;
+  formEl.querySelectorAll('[required]').forEach(field => {
+    const val = field.value.trim();
+    const wrapper = field.closest('.form-group');
+    const errEl = wrapper?.querySelector('.form-error');
+    if (!val) {
+      field.classList.add('error'); field.classList.remove('success');
+      if (errEl) errEl.style.display = 'flex';
+      valid = false;
+    } else {
+      field.classList.remove('error'); field.classList.add('success');
+      if (errEl) errEl.style.display = 'none';
+    }
+  });
+  // blood type
+  const bt = formEl.querySelector('#bloodTypeHidden');
+  if (bt && !bt.value) {
+    showToast('يرجى اختيار فصيلة الدم', 'error');
+    valid = false;
+  }
+  return valid;
+}
+
+// ============ DATES ============
+function formatDate(dateStr) {
+  if (!dateStr) return '—';
+  try {
+    return new Date(dateStr).toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' });
+  } catch { return dateStr; }
+}
+
+function timeAgo(dateStr) {
+  if (!dateStr) return '';
+  const diff = Date.now() - new Date(dateStr).getTime();
+  const mins = Math.floor(diff / 60000);
+  if (mins < 60) return `منذ ${mins} دقيقة`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return `منذ ${hrs} ساعة`;
+  const days = Math.floor(hrs / 24);
+  if (days < 30) return `منذ ${days} يوم`;
+  const months = Math.floor(days / 30);
+  return `منذ ${months} شهر`;
+}
+
+function daysSinceLastDonation(dateStr) {
+  if (!dateStr) return null;
+  return Math.floor((Date.now() - new Date(dateStr).getTime()) / 86400000);
+}
+
+function canDonateNow(lastDonationDate) {
+  const days = daysSinceLastDonation(lastDonationDate);
+  return days === null || days >= 90;
+}
+
+// ============ GENDER LABEL ============
+function genderLabel(g) { return g === 'male' ? 'ذكر' : 'أنثى'; }
+
+// ============ PRIORITY LABEL ============
+function priorityLabel(p) {
+  return { normal: 'عادي', urgent: 'عاجل', emergency: 'طارئ' }[p] || p;
+}
+function priorityClass(p) {
+  return { normal: 'priority-normal', urgent: 'priority-urgent', emergency: 'priority-emergency' }[p] || '';
+}
+
+// ============ INIT ============
+document.addEventListener('DOMContentLoaded', () => {
+  setActiveNav();
+  initMobileSidebar();
+  initCounters();
+  
+  // Smooth nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+  
+  // Mobile menu toggle (public navbar)
+  const mobileToggle = document.getElementById('mobileMenuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (mobileToggle && mobileMenu) {
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+  }
+  
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-question')?.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+  
+  // Input animation on focus
+  document.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(inp => {
+    inp.addEventListener('focus', () => { inp.closest('.form-group')?.classList.add('focused'); });
+    inp.addEventListener('blur', () => { inp.closest('.form-group')?.classList.remove('focused'); });
+  });
+});
+
+</script>
+<div style="background:#0F172A;padding:14px 20px;text-align:center;font-size:13px;color:rgba(255,255,255,0.35);font-family:'Cairo',sans-serif">تم تصميم وتطوير الموقع بواسطة <a href="https://wa.me/201001352771" target="_blank" style="color:rgba(255,255,255,0.65);font-weight:700;text-decoration:none" onmouseover="this.style.color='#FCA5A5'" onmouseout="this.style.color='rgba(255,255,255,0.65)'">أحمد عمرو أبو الحاج</a></div>
+</body>
+</html>
